@@ -1,0 +1,49 @@
+/* tablets */
+@media only screen and (max-width: 1023px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  .row {
+    font-size: 1em;
+  }
+
+  .display {
+    font-size: 1em;
+    width: 180px;
+    height: 180px;
+    line-height: 80px;
+  }
+
+  .reset {
+    width: 70%;
+  }
+}
+
+/* larger phones */
+@media only screen and (max-width: 767px) {
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .row {
+    font-size: 0.8em;
+  }
+
+  .display {
+    font-size: 0.8em;
+    width: 150px;
+    height: 150px;
+    line-height: 60px;
+  }
+
+  .reset {
+    width: 50%;
+  }
+
+  .main {
+    width: 90%;
+  }
+
+}
