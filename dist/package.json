@@ -1,0 +1,19 @@
+{
+  "name": "productivity-clock-pomodoro",
+  "version": "1.0.0",
+  "description": "The Pomodoro Technique is a time management method that can be used for any task. For many people, time is an enemy. The anxiety triggered by “the ticking clock”, especially when it involves a deadline, leads to ineffective work and study habits which in turn lead to procrastination.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daviddemau/productivity-clock-pomodoro.git"
+  },
+  "author": "David Demau",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daviddemau/productivity-clock-pomodoro/issues"
+  },
+  "homepage": "https://github.com/daviddemau/productivity-clock-pomodoro#readme"
+}

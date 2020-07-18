@@ -1,33 +1,28 @@
-//elements to target
-var sessionLength = document.querySelector('.sessionLength');
-var breakLength = document.querySelector('.breakLength');
-var clock = document.querySelector('.clock');
-var phase = document.querySelector('.message');
+// elements to target
+let sessionLength = document.querySelector('.sessionLength');
+let breakLength = document.querySelector('.breakLength');
+let clock = document.querySelector('.clock');
+let phase = document.querySelector('.message');
 
-//buttons
-var startButton = document.querySelector('.display');
-var resetButton = document.querySelector('.reset');
-var minusSession = document.querySelector('.minusSession');
-var minusBreak = document.querySelector('.minusBreak');
-var plusSession = document.querySelector('.plusSession');
-var plusBreak = document.querySelector('.plusBreak');
+// buttons
+let startButton = document.querySelector('.display');
+let resetButton = document.querySelector('.reset');
+let minusSession = document.querySelector('.minusSession');
+let minusBreak = document.querySelector('.minusBreak');
+let plusSession = document.querySelector('.plusSession');
+let plusBreak = document.querySelector('.plusBreak');
 
-//variables
-var count;
-var state;
-var countStart;
-var click = 'firstCLick';
+// variables
+let state;
+let countStart;
+let firstClick;
 
-//initial state
+// initial state
 reset();
 
-//start, pause and restart the count
+// start, pause and restart the count
 startButton.addEventListener('click', function () {
-  if (click == 'firstCLick') {
-    startTime();
-  } else if (click == 'secondClick') {
-    pauseTime();
-  }
+  firstClick ? startTime() : pauseTime();
 });
 
 // remove one minute length from session and/or break
@@ -38,21 +33,20 @@ minusBreak.addEventListener('click', removeOneMinute(breakLength));
 plusSession.addEventListener('click', addOneMinute(sessionLength));
 plusBreak.addEventListener('click', addOneMinute(breakLength));
 
-//reset the clock
+// reset the clock
 resetButton.addEventListener('click', function () {
   reset();
   clearTimeout(countStart);
 });
 
-//functions
 function countDown() {
   counter--;
-  var m = Math.floor(counter / 60);
-  var s = Math.floor(counter % 60);
+  let m = Math.floor(counter / 60);
+  let s = Math.floor(counter % 60);
   if (counter >= 0) {
     clock.innerHTML = m + ':' + s;
   } else {
-    if (state == 'starting') {
+    if (state === 'starting') {
       phase.innerHTML = 'Break';
       clock.innerHTML = breakLength.innerHTML;
       counter = breakLength.innerHTML * 60;
@@ -68,22 +62,22 @@ function reset() {
   clock.innerHTML = sessionLength.innerHTML;
   counter = sessionLength.innerHTML * 60;
   state = 'starting';
-  click = 'firstCLick';
+  firstClick = true;
 }
 
 //start the count
 function startTime() {
   countStart = setInterval(countDown, 1000);
-  click = 'secondClick';
+  firstClick = false;
 }
 
-//pause the count
+// pause the count
 function pauseTime() {
   clearTimeout(countStart, 1000);
-  click = 'firstCLick';
+  firstClick = true;
 }
 
-//remove and add time functions
+// remove and add time functions
 function removeOneMinute(phase) {
   return function (e) {
     if (phase.innerHTML > 1) {
